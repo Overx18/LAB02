@@ -49,7 +49,7 @@ def obtener_alumnos_filtrados():
         response.raise_for_status()
         
         datos = response.json()
-        
+        print("Datos recibidos:", datos)
         # Aplicar reglas de negocio adicionales si es necesario
         # Por ejemplo, agrupar por carrera
         alumnos_por_carrera = {}
