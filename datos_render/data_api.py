@@ -32,11 +32,15 @@ def get_db_connection():
 # Ruta de prueba/estado
 @app.route('/')
 def index():
-    return jsonify({
-        "status": "online",
-        "service": "Data Access API",
-        "version": "1.0"
-    })
+    try:
+        connection = get_db_connection()
+        if connection.is_connected():
+            return jsonify({"message": "Conexión exitosa a la base de datos MySQL"}), 200
+    except mysql.connector.Error as e:
+        return jsonify({"error": f"Error al conectar a la base de datos: {e}"}), 500
+    finally:
+        if connection.is_connected():
+            connection.close()
 
 # Obtener todas las carreras
 @app.route('/api/carreras')
