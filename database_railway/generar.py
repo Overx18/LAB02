@@ -9,10 +9,11 @@ load_dotenv()
 
 # Configuración de la base de datos
 db_config = {
-    'host': os.getenv('mysql.railway.internal'),
-    'user': os.getenv('root'),
-    'password': os.getenv('pIlIsuQhQMjADoGiJiflkvwcdZXEWxOm'),
-    'database': os.getenv('bd_universidad')
+    'host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_NAME'),
+    'port': os.getenv('PORT')
 }
 
 def generar_carreras():

@@ -14,7 +14,7 @@ CORS(app)
 # URL del servicio de datos
 DATOS_API_URL = os.getenv('DATOS_API_URL')
 
-@app.route('/health', methods=['GET'])
+@app.route('/', methods=['GET'])
 def health_check():
     """Endpoint para verificar que el servicio está funcionando"""
     return jsonify({
