@@ -26,7 +26,7 @@ def obtener_conteo_alumnos():
     """Obtiene el conteo de alumnos por carrera y aplica lógica de negocio si es necesario"""
     try:
         # Llamada al servicio de datos
-        response = requests.get(f'{DATOS_API_URL}/api/datos/alumnos/conteo')
+        response = requests.get(f'{DATOS_API_URL}/api/alumnos/conteo')
         if response.status_code != 200:
             return jsonify({"error": "No se pudieron obtener los datos"}), 500
         #response.raise_for_status()  # Lanza excepción si hay error
@@ -47,7 +47,7 @@ def obtener_alumnos_filtrados():
     """Obtiene la lista de alumnos filtrados y aplica reglas de negocio"""
     try:
         # Llamada al servicio de datos
-        response = requests.get(f'{DATOS_API_URL}/api/datos/alumnos/filtrados')
+        response = requests.get(f'{DATOS_API_URL}/api/alumnos/filtrados')
         response.raise_for_status()
         
         datos = response.json()
@@ -71,13 +71,13 @@ def obtener_carreras():
     """Obtiene la lista de carreras con información adicional de negocio"""
     try:
         # Obtener carreras del servicio de datos
-        response = requests.get(f'{DATOS_API_URL}/api/datos/carreras')
+        response = requests.get(f'{DATOS_API_URL}/api/carreras')
         response.raise_for_status()
         
         carreras = response.json()
         
         # Obtener conteo de alumnos
-        response_conteo = requests.get(f'{DATOS_API_URL}/api/datos/alumnos/conteo')
+        response_conteo = requests.get(f'{DATOS_API_URL}/api/alumnos/conteo')
         response_conteo.raise_for_status()
         
         conteo = {item['carrera']: item['total_alumnos'] 
