@@ -66,10 +66,10 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in data %}
+                {% for carrera in data %}
                 <tr>
-                    <td>{{ item.carrera }}</td>
-                    <td>{{ item.total_alumnos }}</td>
+                    <td>{{ carrera.carrera }}</td>
+                    <td>{{ carrera.total_alumnos }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
