@@ -66,7 +66,7 @@ def get_alumnos_conteo():
     cursor = conn.cursor(dictionary=True)
     try:
         cursor.execute("""
-            SELECT cp.nomCP, COUNT(a.Código_alumno) as total_alumnos
+            SELECT cp.nomCP, COUNT(a.Codigo_alumno) as total_alumnos
             FROM TCarreraProfesional cp
             LEFT JOIN TAlumno a ON cp.codigoCP = a.cod_cp
             GROUP BY cp.nomCP, cp.codigoCP
@@ -86,7 +86,7 @@ def get_alumnos_filtrados():
     try:
         cursor.execute("""
             SELECT 
-                a.Código_alumno,
+                a.Codigo_alumno,
                 a.AP,
                 a.Nom,
                 a.edad,

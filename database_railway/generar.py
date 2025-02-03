@@ -19,43 +19,43 @@ db_config = {
 def generar_carreras():
     carreras = []
     nombres_carreras = [
-        'Ingeniería de Sistemas', 'Medicina Humana', 'Derecho', 
-        'Psicología', 'Ingeniería Civil', 'Administración',
-        'Contabilidad', 'Economía', 'Arquitectura', 'Odontología',
-        'Enfermería', 'Ingeniería Industrial', 'Ingeniería Electrónica',
-        'Ingeniería Mecánica', 'Ingeniería Química', 'Ingeniería Ambiental',
-        'Ingeniería de Software', 'Ingeniería de Telecomunicaciones',
-        'Ingeniería Biomédica', 'Ingeniería Aeronáutica', 'Ingeniería Minera',
-        'Ingeniería de Petróleos', 'Ingeniería Agroindustrial',
-        'Ingeniería Agronómica', 'Ingeniería de Alimentos',
-        'Ciencias de la Computación', 'Matemáticas', 'Física', 'Química',
-        'Biología', 'Biotecnología', 'Genética', 'Farmacia y Bioquímica',
-        'Ciencias de la Nutrición', 'Veterinaria', 'Ciencias Políticas',
-        'Relaciones Internacionales', 'Criminología', 'Antropología',
-        'Arqueología', 'Sociología', 'Trabajo Social', 'Historia', 'Filosofía',
-        'Lingüística', 'Literatura', 'Educación Inicial', 'Educación Primaria',
-        'Educación Secundaria', 'Educación Especial', 'Pedagogía',
-        'Comunicación Social', 'Periodismo', 'Publicidad y Marketing',
-        'Diseño Gráfico', 'Diseño de Modas', 'Diseño Industrial',
-        'Cinematografía', 'Fotografía', 'Música', 'Artes Escénicas',
-        'Danza', 'Teatro', 'Artes Plásticas', 'Administración Hotelera',
-        'Gastronomía', 'Turismo', 'Hotelería', 'Ciencias del Deporte',
-        'Ciencias del Mar', 'Oceanografía', 'Astronomía', 'Meteorología',
-        'Geología', 'Geografía', 'Estadística', 'Actuaría', 'Administración Pública',
-        'Logística y Transporte', 'Negocios Internacionales',
+        'Ingenieria de Sistemas', 'Medicina Humana', 'Derecho', 
+        'Psicologia', 'Ingenieria Civil', 'Administracion',
+        'Contabilidad', 'Economia', 'Arquitectura', 'Odontologia',
+        'Enfermeria', 'Ingenieria Industrial', 'Ingenieria Electronica',
+        'Ingenieria Mecanica', 'Ingenieria Quimica', 'Ingenieria Ambiental',
+        'Ingenieria de Software', 'Ingenieria de Telecomunicaciones',
+        'Ingenieria Biomedica', 'Ingenieria Aeronautica', 'Ingenieria Minera',
+        'Ingenieria de Petroleos', 'Ingenieria Agroindustrial',
+        'Ingenieria Agronómica', 'Ingenieria de Alimentos',
+        'Ciencias de la Computacion', 'Matematicas', 'Fisica', 'Quimica',
+        'Biologia', 'Biotecnologia', 'Genetica', 'Farmacia y Bioquimica',
+        'Ciencias de la Nutricion', 'Veterinaria', 'Ciencias Politicas',
+        'Relaciones Internacionales', 'Criminologia', 'Antropologia',
+        'Arqueologia', 'Sociologia', 'Trabajo Social', 'Historia', 'Filosofia',
+        'Lingüistica', 'Literatura', 'Educacion Inicial', 'Educacion Primaria',
+        'Educacion Secundaria', 'Educacion Especial', 'Pedagogia',
+        'Comunicacion Social', 'Periodismo', 'Publicidad y Marketing',
+        'Diseño Grafico', 'Diseño de Modas', 'Diseño Industrial',
+        'Cinematografia', 'Fotografia', 'Musica', 'Artes Escénicas',
+        'Danza', 'Teatro', 'Artes Plasticas', 'Administracion Hotelera',
+        'Gastronomia', 'Turismo', 'Hoteleria', 'Ciencias del Deporte',
+        'Ciencias del Mar', 'Oceanografia', 'Astronomia', 'Meteorologia',
+        'Geologia', 'Geografia', 'Estadistica', 'Actuaria', 'Administracion Publica',
+        'Logistica y Transporte', 'Negocios Internacionales',
         'Mercadotecnia', 'Comercio Exterior', 'Finanzas',
-        'Gestión y Administración de Empresas', 'Ciencias Actuariales',
-        'Terapia Ocupacional', 'Terapia Física y Rehabilitación',
-        'Radiología', 'Optometría', 'Bioinformática', 'Nanotecnología',
+        'Gestion y Administracion de Empresas', 'Ciencias Actuariales',
+        'Terapia Ocupacional', 'Terapia Fisica y Rehabilitacion',
+        'Radiologia', 'Optometría', 'Bioinformatica', 'Nanotecnologia',
         'Ciencias Forenses', 'Seguridad y Salud en el Trabajo',
         'Desarrollo de Videojuegos', 'Inteligencia Artificial',
-        'Ciberseguridad', 'Agronegocios', 'Ecología', 'Energías Renovables',
-        'Gestión Cultural', 'Gestión Ambiental'
+        'Ciberseguridad', 'Agronegocios', 'Ecologia', 'Energias Renovables',
+        'Gestion Cultural', 'Gestion Ambiental'
     ]
     
     for i in range(100):
         codigo = f'CP{str(i+1).zfill(3)}'
-        nombre = f'{nombres_carreras[i % len(nombres_carreras)]} {i+1}'
+        nombre = f'{nombres_carreras[i % len(nombres_carreras)]}'
         fecha = (datetime(2000, 1, 1) + timedelta(days=i*30)).strftime('%Y-%m-%d')
         observaciones = f'Observaciones para {nombre}'
         carreras.append((codigo, nombre, fecha, observaciones))
@@ -64,8 +64,8 @@ def generar_carreras():
 
 def generar_alumnos(num_alumnos, carreras):
     alumnos = []
-    nombres = ['Juan', 'Ana', 'Pedro', 'María', 'Luis', 'Carmen']
-    apellidos = ['García', 'Pérez', 'López', 'Rodríguez', 'Martínez']
+    nombres = ['Juan', 'Ana', 'Pedro', 'Maria', 'Luis', 'Carmen']
+    apellidos = ['Garcia', 'Perez', 'Lopez', 'Rodriguez', 'Martinez']
     colores = ['Azul', 'Verde', 'Amarillo', 'Negro', 'Blanco', 'Morado', 'Rojo']
     provincias = ['Lima', 'Callao', 'Arequipa', 'Trujillo', 'Cusco']
     
@@ -105,7 +105,7 @@ def insertar_datos():
         alumnos = generar_alumnos(100000, carreras)  # Generar 100,000 alumnos
         for i in range(0, len(alumnos), 1000):  # Insertar en lotes de 1000
             cursor.executemany(
-                "INSERT INTO TAlumno (Código_alumno, AP, Nom, edad, sexo, peso, "
+                "INSERT INTO TAlumno (Codigo_alumno, AP, Nom, edad, sexo, peso, "
                 "talla, color, prov, cod_cp, fecha_ingreso_U) "
                 "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                 alumnos[i:i+1000]
