@@ -1,5 +1,6 @@
 
 CREATE DATABASE IF NOT EXISTS bd_universidad;
+
 USE bd_universidad;
 
 
