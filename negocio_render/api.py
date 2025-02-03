@@ -42,25 +42,15 @@ def obtener_conteo_alumnos():
 
 @app.route('/api/alumnos/filtrados', methods=['GET'])
 def obtener_alumnos_filtrados():
-    """Obtiene la lista de alumnos filtrados y aplica reglas de negocio"""
     try:
-        # Llamada al servicio de datos
         response = requests.get(f'{DATOS_API_URL}/api/alumnos/filtrados')
         response.raise_for_status()
-        
         datos = response.json()
-        print("Datos recibidos:", datos)
-        # Aplicar reglas de negocio adicionales si es necesario
-        # Por ejemplo, agrupar por carrera
-        alumnos_por_carrera = {}
-        for alumno in datos:
-            carrera = alumno['carrera']
-            if carrera not in alumnos_por_carrera:
-                alumnos_por_carrera[carrera] = []
-            alumnos_por_carrera[carrera].append(alumno)
         
-        return jsonify(alumnos_por_carrera)
-    
+        # Añadir este print para depuración
+        print("Datos recibidos:", datos)
+        
+        return jsonify(datos)
     except requests.RequestException as e:
         return jsonify({"error": f"Error al obtener datos: {str(e)}"}), 500
 
