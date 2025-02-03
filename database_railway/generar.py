@@ -4,10 +4,8 @@ from datetime import datetime, timedelta
 import os
 from dotenv import load_dotenv
 
-# Cargar variables de entorno
 load_dotenv()
 
-# Configuración de la base de datos
 db_config = {
     'host': os.getenv('DB_HOST'),
     'user': os.getenv('DB_USER'),
@@ -79,7 +77,7 @@ def generar_alumnos(num_alumnos, carreras):
         talla = round(random.uniform(1.50, 1.90), 2)
         color = random.choice(colores)
         prov = random.choice(provincias)
-        cod_cp = random.choice(carreras)[0]  # Código de carrera aleatorio
+        cod_cp = random.choice(carreras)[0] 
         fecha_ingreso = (datetime(2020, 1, 1) + 
                         timedelta(days=random.randint(0,1000))).strftime('%Y-%m-%d')
         
@@ -93,7 +91,6 @@ def insertar_datos():
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
         
-        # Insertar carreras
         carreras = generar_carreras()
         cursor.executemany(
             "INSERT INTO TCarreraProfesional (codigoCP, nomCP, Fecha_creacion, observaciones) "
@@ -101,9 +98,8 @@ def insertar_datos():
             carreras
         )
         
-        # Insertar alumnos
-        alumnos = generar_alumnos(100000, carreras)  # Generar 100,000 alumnos
-        for i in range(0, len(alumnos), 1000):  # Insertar en lotes de 1000
+        alumnos = generar_alumnos(100000, carreras) 
+        for i in range(0, len(alumnos), 1000):
             cursor.executemany(
                 "INSERT INTO TAlumno (Codigo_alumno, AP, Nom, edad, sexo, peso, "
                 "talla, color, prov, cod_cp, fecha_ingreso_U) "

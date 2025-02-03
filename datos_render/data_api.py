@@ -4,32 +4,22 @@ import mysql.connector
 import os
 from dotenv import load_dotenv
 
-# Cargar variables de entorno
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-# Configuración de la base de datos desde variables de entorno
-'''DB_CONFIG = {
-    'host': os.getenv('DB_HOST'),
-    'user': os.getenv('DB_USER'),
-    'password': os.getenv('DB_PASSWORD'),
-    'database': os.getenv('DB_NAME'),
-    'port': os.getenv('PORT')
-}'''
 
 def get_db_connection():
     return mysql.connector.connect(
-            host="junction.proxy.rlwy.net",   # Por ejemplo, "db.railway.app"
-            user="root",           # El usuario de tu base de datos
-            password="pIlIsuQhQMjADoGiJiflkvwcdZXEWxOm",    # La contraseña de tu base de datos
+            host="junction.proxy.rlwy.net",
+            user="root",         
+            password="pIlIsuQhQMjADoGiJiflkvwcdZXEWxOm",  
             database="bd_universidad",
-            port="54784"  # El nombre de tu base de datos
+            port="54784" 
         )
 
 
-# Ruta de prueba/estado
 @app.route('/')
 def index():
     try:
@@ -42,7 +32,7 @@ def index():
         if connection.is_connected():
             connection.close()
 
-# Obtener todas las carreras
+
 @app.route('/api/carreras')
 def get_carreras():
     conn = get_db_connection()
@@ -101,7 +91,6 @@ def get_alumnos_filtrados():
         cursor.close()
         conn.close()
 
-# Manejo de errores
 @app.errorhandler(404)
 def not_found_error(error):
     return jsonify({"error": "Recurso no encontrado"}), 404
