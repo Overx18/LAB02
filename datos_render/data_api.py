@@ -25,7 +25,7 @@ def get_db_connection():
             user="root",           # El usuario de tu base de datos
             password="pIlIsuQhQMjADoGiJiflkvwcdZXEWxOm",    # La contraseña de tu base de datos
             database="bd_universidad",
-            port="54784"  # El nombre de tu base de datos
+            port="54785"  # El nombre de tu base de datos
         )
 
 
