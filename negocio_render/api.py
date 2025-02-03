@@ -27,7 +27,9 @@ def obtener_conteo_alumnos():
     try:
         # Llamada al servicio de datos
         response = requests.get(f'{DATOS_API_URL}/api/datos/alumnos/conteo')
-        response.raise_for_status()  # Lanza excepción si hay error
+        if response.status_code != 200:
+            return jsonify({"error": "No se pudieron obtener los datos"}), 500
+        #response.raise_for_status()  # Lanza excepción si hay error
         
         datos = response.json()
         

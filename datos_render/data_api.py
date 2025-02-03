@@ -47,7 +47,6 @@ def index():
 def get_carreras():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    
     try:
         cursor.execute("""
             SELECT codigoCP, nomCP, Fecha_creacion, observaciones 
@@ -65,7 +64,6 @@ def get_carreras():
 def get_alumnos_conteo():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    
     try:
         cursor.execute("""
             SELECT cp.nomCP, COUNT(a.Código_alumno) as total_alumnos
@@ -85,7 +83,6 @@ def get_alumnos_conteo():
 def get_alumnos_filtrados():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    
     try:
         cursor.execute("""
             SELECT 
