@@ -19,15 +19,18 @@ def alumnos_por_carrera():
     try:
         response = requests.get(f'{NEGOCIO_API}/api/alumnos/conteo')
         data = response.json()
+        print("Datos recibidos:", data)  # Para debug
         return render_template('alumnos_por_carrera.html', data=data)
     except requests.RequestException as e:
         return render_template('error.html', error=str(e))
+    
 
 @app.route('/alumnos-filtrados')
 def alumnos_filtrados():
     try:
         response = requests.get(f'{NEGOCIO_API}/api/alumnos/filtrados')
         data = response.json()
+        print("Datos filtrados:", data)  # Para debug
         return render_template('alumnos_filtrados.html', data=data)
     except requests.RequestException as e:
         return render_template('error.html', error=str(e))
