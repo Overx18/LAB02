@@ -59,14 +59,13 @@ def get_carreras():
         cursor.close()
         conn.close()
 
-# Obtener conteo de alumnos por carrera
 @app.route('/api/alumnos/conteo')
 def get_alumnos_conteo():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
     try:
         cursor.execute("""
-            SELECT cp.nomCP, COUNT(a.Codigo_alumno) as total_alumnos
+            SELECT cp.nomCP as carrera, COUNT(a.Codigo_alumno) as total_alumnos
             FROM TCarreraProfesional cp
             LEFT JOIN TAlumno a ON cp.codigoCP = a.cod_cp
             GROUP BY cp.nomCP, cp.codigoCP
@@ -78,7 +77,6 @@ def get_alumnos_conteo():
         cursor.close()
         conn.close()
 
-# Obtener alumnos filtrados
 @app.route('/api/alumnos/filtrados')
 def get_alumnos_filtrados():
     conn = get_db_connection()
@@ -86,12 +84,10 @@ def get_alumnos_filtrados():
     try:
         cursor.execute("""
             SELECT 
-                a.Codigo_alumno,
-                a.AP,
-                a.Nom,
-                a.edad,
-                cp.nomCP,
-                a.fecha_ingreso_U
+                a.Codigo_alumno as codigo,
+                a.AP as apellido,
+                a.Nom as nombre,
+                cp.nomCP as carrera
             FROM TAlumno a
             JOIN TCarreraProfesional cp ON a.cod_cp = cp.codigoCP
             WHERE a.fecha_ingreso_U > '2021-01-01'
