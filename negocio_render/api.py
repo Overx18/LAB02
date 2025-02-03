@@ -28,7 +28,7 @@ def obtener_conteo_alumnos():
         # Llamada al servicio de datos
         response = requests.get(f'{DATOS_API_URL}/api/alumnos/conteo')
         response.raise_for_status()  # Lanza excepción si hay error
-        
+        print("Datos recibidos:", datos)
         datos = response.json()
         
         # Aquí puedes agregar lógica de negocio adicional
