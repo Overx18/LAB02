@@ -11,16 +11,23 @@ app = Flask(__name__)
 CORS(app)
 
 # Configuración de la base de datos desde variables de entorno
-DB_CONFIG = {
+'''DB_CONFIG = {
     'host': os.getenv('DB_HOST'),
     'user': os.getenv('DB_USER'),
     'password': os.getenv('DB_PASSWORD'),
     'database': os.getenv('DB_NAME'),
     'port': os.getenv('PORT')
-}
+}'''
 
 def get_db_connection():
-    return mysql.connector.connect(**DB_CONFIG)
+    return mysql.connector.connect(
+            host="junction.proxy.rlwy.net",   # Por ejemplo, "db.railway.app"
+            user="root",           # El usuario de tu base de datos
+            password="pIlIsuQhQMjADoGiJiflkvwcdZXEWxOm",    # La contraseña de tu base de datos
+            database="bd_universidad",
+            port="54784"  # El nombre de tu base de datos
+        )
+
 
 # Ruta de prueba/estado
 @app.route('/')
