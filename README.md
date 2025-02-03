@@ -24,6 +24,7 @@
 ## 5. Para la capa de base de datos:
 ##### a. En railway, crear un proyecto MySql
 ##### b. Eliminar todas las variables de entorno creada por railway, luego insertar el .env de la carpeta: database_railway
-##### c. Ir a Settings a Networking eliminar ese dominio y crear uno nuevo: junction.proxy.rlwy.net  y con Custom Port: 54784 ##### d. Redesplegar
+##### c. Ir a Settings a Networking eliminar ese dominio y crear uno nuevo: junction.proxy.rlwy.net  y con Custom Port: 54784 
+##### d. Redesplegar
 ##### e. Ir a la carpeta: database_railway y ejecutar las 4 consultas del archivo sqhema.sql
-##### f. Ir a la carpeta: database_railwayy ejecutar generar.py(genera 100000 datos en el server mysql)
+##### f. Ir a la carpeta: database_railway y ejecutar generar.py(genera 100000 datos en el server mysql)
